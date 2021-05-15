@@ -1,8 +1,8 @@
 # lua-ini
-A lightweight INI library for Lua
+A lightweight lua module to handle ini files
 
 # Usage
-The **lua.ini** file should be dropped into your project and required by it using:
+The **lua.ini** file should be dropped into your project and required using:
 
 ```lua
 local ini = require "lua-ini"
@@ -10,11 +10,10 @@ local ini = require "lua-ini"
 
 # Examples
 Encode some values date to a ini string file.
-
 ```lua
 local ini = require "lua-ini"
 
--- Data to encode as ini file
+-- Data to encode as an ini file
 local data = {
 	configuration = {
 		left = 70,
@@ -34,7 +33,8 @@ print(ini.encode(data))
 -- Optional write the file using the library
 ini.save("configuration.ini", data)
 ```
-And the *.ini* file created :
+
+And the *.ini* file created 
 ```ini
 [sound]
 left=70
@@ -48,7 +48,6 @@ focused=true
 ```
 
 Now let's get all this data:
-
 ```lua
 local ini = require "lua-ini"
 
@@ -60,8 +59,7 @@ print(data.screen.caption) --> Window's caption
 print(data.screen.focused) --> true
 ````
 
-It is also possible to give indexes instead of keys :
-
+It is also possible to give indexes instead of keys:
 ```lua
 local data = {
 	{
@@ -76,8 +74,7 @@ local data = {
 }
 ````
 
-And we have to retrieve data using these indexes :
-
+And we have to retrieve data using these indexes:
 ```lua
 print(data[1][1]) --> 50
 print(data[1].right) --> 40
