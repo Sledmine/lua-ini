@@ -1,4 +1,11 @@
---[[
+-------------------------------------------------------------------------------
+--- INI Module
+--- Dynodzzo, Sledmine
+--- It has never been that simple to use ini files with Lua
+----------------------------------------------------------------------------------
+local ini = {
+    _VERSION = 1.0,
+    _LICENSE = [[
 	Copyright (c) 2012 Carreras Nicolas
 	
 	Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -18,12 +25,8 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
---]] -------------------------------------------------------------------------------
---- Lua INI
---- Dynodzzo, Sledmine
---- It has never been that simple to use INI files with Lua
-----------------------------------------------------------------------------------
-local ini = {}
+]]
+}
 
 --- Returns a table containing all the data from an ini string
 ---@param fileString string Ini encoded string
@@ -67,15 +70,15 @@ end
 ---@param data table Table containing all data from the ini file
 ---@return string String encoded as an ini file
 function ini.encode(data)
-    local contents = ""
+    local content = ""
     for section, param in pairs(data) do
-        contents = contents .. ("[%s]\n"):format(section)
+        content = content .. ("[%s]\n"):format(section)
         for key, value in pairs(param) do
-            contents = contents .. ("%s=%s\n"):format(key, tostring(value))
+            content = content .. ("%s=%s\n"):format(key, tostring(value))
         end
-        contents = contents .. "\n"
+        content = content .. "\n"
     end
-    return contents
+    return content
 end
 
 --- Returns a table containing all the data from an ini file

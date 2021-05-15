@@ -50,14 +50,14 @@ focused=true
 Now let's get all this data:
 
 ```lua
-local LIP = require 'LIP';
+local ini = require "lua-ini"
 
 -- Data loading
-local data = LIP.load('savedata.ini');
+local data = ini.load("savedata.ini")
 
-print(data.sound.right); --> 80
-print(data.screen.caption); --> Window's caption
-print(data.screen.focused); --> true
+print(data.sound.right) --> 80
+print(data.screen.caption) --> Window's caption
+print(data.screen.focused) --> true
 ````
 
 It is also possible to give indexes instead of keys :
@@ -79,8 +79,8 @@ local data = {
 And we have to retrieve data using these indexes :
 
 ```lua
-print(data[1][1]); --> 50
+print(data[1][1]) --> 50
 print(data[1].right) --> 40
-print(data[2][1]); --> Some text
-print(data[2][3]); --> true
+print(data[2][1]) --> Some text
+print(data[2][3]) --> true
 ````
